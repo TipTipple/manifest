@@ -1,0 +1,19 @@
+default: &default
+  serverUrl: ~
+  debug: false
+  loglevel: error
+  outputDir: dist/
+  manifestDir: dist/
+  assetsUrl: ""
+
+development:
+  <<: *default
+  loglevel: debug
+  debug: true
+
+production:
+  <<: *default
+  serverUrl: USAFE_SERVER_URL
+  assetsUrl: USAFE_ASSETS_URL
+  loglevel: USAFE_LOG_LEVEL
+
