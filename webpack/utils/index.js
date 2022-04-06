@@ -4,6 +4,8 @@ const fs = require("fs");
 const cp = require("child_process");
 const yaml = require("js-yaml");
 
+const PREFIX_REGEX = /^WIZZARD_/
+
 const getEnv = () => process.env.NODE_ENV || "development";
 
 const isProduction = () => getEnv() === "production";

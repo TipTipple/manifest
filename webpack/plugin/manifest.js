@@ -1,11 +1,11 @@
 const path = require("path")
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin")
 
-const utils = require("./utils")
+const utils = require("../utils")
 const config = utils.getConfig()
 
 const getManifestPath = name => {
-  return path.resolve(path.join(config.manifestDir, `one-click-manifest.${name}.json`))
+  return path.resolve(path.join(config.manifestDir, `wizzard.${name}.json`))
 }
 
 const getPlugin = theme => {
@@ -19,7 +19,7 @@ const getPlugin = theme => {
         return { ...manifest, [type]: fd.path }
       }, {})
 
-      return { ...seed, "one-click": widgetConfig }
+      return { ...seed, "wizzard": widgetConfig }
     },
   })
 }

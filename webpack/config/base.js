@@ -31,16 +31,13 @@ module.exports = (theme) => ({
         use: "yaml-loader",
       },
       {
-        test: /\.s?css$/,
+        test: /\.css$/,
         use: [
           MiniCSSExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
           {
-            loader: "sass-loader",
+            loader: "css-loader",
             options: {
-              additionalData: `@import '@styles/themes/${theme}.scss';`,
-            },
+              modules: true,            },
           },
         ],
       },

@@ -3,7 +3,6 @@ const HtmlPlugin = require("html-webpack-plugin")
 const { merge } = require("webpack-merge")
 
 const base = require("./base")
-const mock = require("../lib/mock")
 
 module.exports = theme => merge(base(theme), {
   mode: "development",
@@ -25,22 +24,21 @@ module.exports = theme => merge(base(theme), {
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
       "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
     },
-    setupMiddlewares: mock,
-    historyApiFallback: {
-      rewrites: [
-        { from: /^\/$/, to: "/dev.html" },
-      ],
-    },
-    devMiddleware: {
-      index: "dev.html",
-      writeToDisk: true,
-    },
+    // historyApiFallback: {
+    //   rewrites: [
+    //     { from: /^\/$/, to: "/dev.html" },
+    //   ],
+    // },
+    // devMiddleware: {
+    //   index: "dev.html",
+    //   writeToDisk: true,
+    // },
   },
-  plugins: [
-    new HtmlPlugin({
-      filename: "dev.html",
-      template: path.resolve("templates/dev.html"),
-      inject: "head",
-    }),
-  ],
+  // plugins: [
+  //   new HtmlPlugin({
+  //     filename: "dev.html",
+  //     template: path.resolve("templates/dev.html"),
+  //     inject: "head",
+  //   }),
+  // ],
 })
